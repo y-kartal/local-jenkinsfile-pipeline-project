@@ -1,21 +1,18 @@
 pipeline {
     agent any
+    environment {
+        JAVA_HOME = '/path/to/your/jdk'
+    }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                echo 'Compiling the java source code'
                 sh 'javac Hello.java'
             }
         }
-        
-        stage('run') {
+        stage('Run') {
             steps {
-                echo 'Running the compiled java code.'
                 sh 'java Hello'
             }
         }
     }
 }
-
-
-
